@@ -3,15 +3,16 @@
 using namespace std;
 using std::vector;
 vector<int> UserNum;
-/*PentagonalÊıÁĞµÄÇóÖµ¹«Ê½Ê±Pn=n*(3n-1)/2,½è´Ë²úÉú1,5,12,22,35µÈÔªËØÖµ£¬ÊÔ¶¨ÒåÒ»¸öº¯Êı£¬ÀûÓÃÉÏÊöµÄ¹«Ê½£¬½«²úÉúµÄÔªËØÖÃÈëÓÃ»§´«ÈëµÄvectorÖ®ÖĞ£¬
-ÔªËØÊıÄ¿ÓÉÓÃ»§Ö¸¶¨£¬Çë¼ì²éÔªËØÊıÄ¿µÄÓĞĞ§ĞÔ£¨Ì«´ó¿ÉÄÜ»áÒı·¢overflowÎÊÌâ£©£¬½ÓÏÂÀ´×«Ğ´µÚ¶ş¸öº¯Êı£¬ÄÜ¹»½«Ëù½Ó»ñµÄvectorµÄËùÓĞÔªËØÒ»Ò»Ó¡³ö£¬´Ëº¯Êı
-µÄµÚ¶ş¸ö²ÎÊı½ÓÊÜÒ»¸ö×Ö·û´®£¬±íÊ¾´¢´æÓÚvectorÄÚµÄÊıÁĞµÄÀàĞÍ£¬×îºóÔÚĞ´Ò»¸ömain()£¬²âÊÔÉÏÊöÁ½¸öº¯Êı*/
+/*Pentagonalæ•°åˆ—çš„æ±‚å€¼å…¬å¼æ—¶Pn=n*(3n-1)/2,å€Ÿæ­¤äº§ç”Ÿ1,5,12,22,35ç­‰å…ƒç´ å€¼ï¼Œè¯•å®šä¹‰ä¸€ä¸ªå‡½æ•°ï¼Œåˆ©ç”¨ä¸Šè¿°çš„å…¬å¼ï¼Œå°†äº§ç”Ÿçš„å…ƒç´ ç½®å…¥ç”¨æˆ·ä¼ å…¥çš„vectorä¹‹ä¸­ï¼Œ
+å…ƒç´ æ•°ç›®ç”±ç”¨æˆ·æŒ‡å®šï¼Œè¯·æ£€æŸ¥å…ƒç´ æ•°ç›®çš„æœ‰æ•ˆæ€§ï¼ˆå¤ªå¤§å¯èƒ½ä¼šå¼•å‘overflowé—®é¢˜ï¼‰ï¼Œæ¥ä¸‹æ¥æ’°å†™ç¬¬äºŒä¸ªå‡½æ•°ï¼Œèƒ½å¤Ÿå°†æ‰€æ¥è·çš„vectorçš„æ‰€æœ‰å…ƒç´ ä¸€ä¸€å°å‡ºï¼Œæ­¤å‡½æ•°
+çš„ç¬¬äºŒä¸ªå‚æ•°æ¥å—ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œè¡¨ç¤ºå‚¨å­˜äºvectorå†…çš„æ•°åˆ—çš„ç±»å‹ï¼Œæœ€ååœ¨å†™ä¸€ä¸ªmain()ï¼Œæµ‹è¯•ä¸Šè¿°ä¸¤ä¸ªå‡½æ•°*/
 
 void Pentagonal(int n, std::vector<int>* UserNum);
 void MyPrintf(int num, string Type);
 int main()
 {
 	int num = 0;
+	string Type = '0';
 	cout << "Please input what numbers your want: ";
 	while (1)
 	{
@@ -23,10 +24,10 @@ int main()
 		else
 			break;
 	}
-
+	Type = vector<int>::size_type;
 	Pentagonal(num, &UserNum);
 
-	MyPrintf(num, "int");
+	MyPrintf(&UserNum, Type);
 
 
 	system("pause");
@@ -51,8 +52,10 @@ void Pentagonal(int n, std::vector<int>* UserNum)
 
 
 
-void MyPrintf(int num, string Type)
+void MyPrintf(std::vector<int>*UserNum, string Type)
 {
+	int num = 0;
+	num = UserNum->size();
 	for (int i = 0;i < num;i++)
 	{
 		cout << UserNum[i] << " " << Type << endl;
