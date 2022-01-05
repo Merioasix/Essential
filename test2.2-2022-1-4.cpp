@@ -6,7 +6,7 @@ vector<int> UserNum;
 /*Pentagonal数列的求值公式时Pn=n*(3n-1)/2,借此产生1,5,12,22,35等元素值，试定义一个函数，利用上述的公式，将产生的元素置入用户传入的vector之中，
 元素数目由用户指定，请检查元素数目的有效性（太大可能会引发overflow问题），接下来撰写第二个函数，能够将所接获的vector的所有元素一一印出，此函数
 的第二个参数接受一个字符串，表示储存于vector内的数列的类型，最后在写一个main()，测试上述两个函数*/
-
+//此部分代码没用迭代器，输出函数是依靠全局变量UserNum,若改为局部变量，则需要使用迭代器输出.
 void Pentagonal(int n, std::vector<int>* UserNum);
 void MyPrintf(int num, string Type);
 int main()
